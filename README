@@ -1,125 +1,128 @@
-# Telecom Customer Churn Prediction
+# 📊 Predicción de Cancelación de Clientes (Churn) - Telecom
 
-## Project Overview
+## 📌 Descripción del Proyecto
 
-Customer churn represents one of the main challenges for subscription-based companies. Understanding why customers leave and predicting which clients are more likely to cancel can help companies implement proactive retention strategies.
+La cancelación de clientes (churn) es uno de los principales desafíos para las empresas que ofrecen servicios por suscripción. Identificar a los clientes con mayor probabilidad de cancelar permite a las empresas implementar estrategias de retención de forma anticipada.
 
-This project focuses on analyzing customer data and building machine learning models to predict customer churn. Through exploratory data analysis, feature engineering, and model evaluation, the project identifies key factors influencing customer cancellation.
-
----
-
-## Objectives
-
-- Analyze customer behavior and identify patterns related to churn.
-- Build machine learning models to predict customer cancellation.
-- Compare model performance using different evaluation metrics.
-- Identify the most relevant variables affecting churn.
-- Propose retention strategies based on the analysis results.
+En este proyecto se analizan datos de clientes de una empresa de telecomunicaciones y se desarrollan modelos de **Machine Learning** para predecir la cancelación del servicio. A través de análisis exploratorio, transformación de variables y evaluación de modelos, se identifican los factores que más influyen en el churn.
 
 ---
 
-## Dataset
+## 🎯 Objetivos
 
-The dataset contains information about telecom customers including:
-
-- Customer demographics
-- Type of contract
-- Internet services
-- Additional services
-- Billing information
-- Customer tenure
-- Monthly and total charges
-- Customer churn status
-
-Target variable:
-
-**baja_servicio**  
-- 0 → Customer stays  
-- 1 → Customer cancels
+- Analizar el comportamiento de los clientes y detectar patrones asociados a la cancelación.
+- Construir modelos de Machine Learning para predecir el churn.
+- Comparar el desempeño de diferentes modelos.
+- Identificar las variables más importantes que influyen en la cancelación.
+- Proponer estrategias de retención basadas en los resultados obtenidos.
 
 ---
 
-## Project Workflow
+## 📂 Dataset
 
-The project follows a typical machine learning pipeline:
+El conjunto de datos contiene información sobre clientes de telecomunicaciones, incluyendo:
 
-1. Data Cleaning
-2. Exploratory Data Analysis (EDA)
-3. Feature Engineering and Encoding
-4. Train/Test Split
-5. Handling Class Imbalance (SMOTE)
-6. Model Training
-7. Model Evaluation
-8. Feature Importance Analysis
-9. Business Insights and Recommendations
+- Datos demográficos del cliente
+- Tipo de contrato
+- Servicios de internet
+- Servicios adicionales
+- Información de facturación
+- Tiempo de permanencia del cliente
+- Cargo mensual y cargo total
+- Estado de cancelación del servicio
 
----
+**Variable objetivo**
 
-## Models Implemented
+`baja_servicio`
 
-The following models were tested and compared:
-
-- Dummy Classifier (baseline model)
-- Decision Tree
-- Decision Tree with SMOTE
-- Logistic Regression
-- Random Forest (feature importance analysis)
+- **0 → Cliente permanece**
+- **1 → Cliente cancela**
 
 ---
 
-## Model Evaluation Metrics
+## ⚙️ Flujo del Proyecto
 
-Models were evaluated using:
+El análisis sigue el flujo típico de un proyecto de Machine Learning:
 
-- Accuracy
-- Precision
-- Recall
-- F1-score
-- Confusion Matrix
-
-Because churn datasets are typically imbalanced, **recall for the churn class** was considered particularly important.
-
----
-
-## Results
-
-The **Decision Tree model combined with SMOTE** provided the best performance in detecting churn.
-
-Key results:
-
-- Baseline accuracy: ~73%
-- Decision Tree accuracy: ~76%
-- Churn recall improved from **55% to ~62%** after applying SMOTE.
-- False negatives were reduced from **264 to 225 customers**, meaning more potential churn cases were correctly detected.
+1. Limpieza de datos
+2. Análisis exploratorio de datos (EDA)
+3. Transformación y codificación de variables
+4. División de datos (Train/Test Split)
+5. Manejo de desbalance de clases (SMOTE)
+6. Entrenamiento de modelos
+7. Evaluación de modelos
+8. Análisis de importancia de variables
+9. Propuesta de estrategias de retención
 
 ---
 
-## Key Factors Influencing Churn
+## 🤖 Modelos Utilizados
 
-Feature importance analysis and logistic regression coefficients highlighted several important variables:
+Se entrenaron y evaluaron los siguientes modelos:
 
-- **Contract type (Month-to-month)** – strongly associated with higher churn
-- **Customer tenure** – longer tenure reduces churn probability
-- **Monthly and total charges** – pricing influences customer decisions
-- **Fiber optic internet service**
-- **Additional services (online security, technical support, backups)**
-
-Customers with more services tend to be more loyal.
+- **Dummy Classifier** (modelo base)
+- **Árbol de Decisión**
+- **Árbol de Decisión con SMOTE**
+- **Regresión Logística**
+- **Random Forest** (para análisis de importancia de variables)
 
 ---
 
-## Retention Strategies
+## 📈 Métricas de Evaluación
 
-Based on the analysis, several strategies can help reduce churn:
+Los modelos fueron evaluados utilizando:
 
-- Encourage longer-term contracts through discounts or incentives.
-- Implement loyalty programs for new customers.
-- Improve internet service quality and reliability.
-- Promote bundled services such as security, backup, and technical support.
+- **Exactitud (Accuracy)**
+- **Precisión (Precision)**
+- **Recall**
+- **F1-score**
+- **Matriz de confusión**
+
+Debido a que los datasets de churn suelen estar desbalanceados, se dio especial importancia al **recall de la clase churn**, ya que detectar clientes que podrían cancelar permite implementar estrategias de retención.
 
 ---
 
-## Technologies Used
+## 📊 Resultados
+
+El modelo de **Árbol de Decisión combinado con SMOTE** mostró el mejor desempeño en la detección de cancelación de clientes.
+
+Principales resultados:
+
+- Exactitud del modelo base: **~73%**
+- Exactitud del Árbol de Decisión: **~76%**
+- Mejora en el recall de churn de **55% a aproximadamente 62%** después de aplicar SMOTE.
+- Reducción de falsos negativos de **264 a 225 clientes**.
+
+Esto significa que el modelo logró identificar más clientes con riesgo de cancelar el servicio.
+
+---
+
+## 🔍 Factores que Influyen en la Cancelación
+
+El análisis de importancia de variables y los coeficientes de regresión logística identificaron los siguientes factores clave:
+
+- **Tipo de contrato (Month-to-month)** → mayor probabilidad de cancelación.
+- **Tiempo de permanencia del cliente** → a mayor permanencia, menor churn.
+- **Cargo mensual y cargo total del servicio.**
+- **Tipo de servicio de internet (Fiber optic).**
+- **Servicios adicionales como seguridad online, soporte técnico y respaldo de datos.**
+
+Los clientes que utilizan más servicios adicionales tienden a ser más fieles a la empresa.
+
+---
+
+## 💡 Estrategias de Retención
+
+A partir de los resultados obtenidos se proponen las siguientes estrategias:
+
+- Incentivar **contratos de mayor duración** mediante descuentos o beneficios.
+- Implementar **programas de fidelización para nuevos clientes**.
+- Mejorar la **calidad y estabilidad del servicio de internet**.
+- Promover **paquetes de servicios adicionales** que aumenten el valor percibido por el cliente.
+
+---
+
+## 🛠 Tecnologías Utilizadas
 
 - Python
 - Pandas
@@ -131,4 +134,4 @@ Based on the analysis, several strategies can help reduce churn:
 
 ---
 
-## Project Structure
+## 📁 Estructura del Proyecto
